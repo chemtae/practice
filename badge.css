@@ -1,0 +1,13 @@
+.badge {
+  background-color: tomato;
+  width: 30px;
+  height: 30px; /* 여기까지만 쓰면 width나 height가 안되는데 span이기 때문. 그래서 block처리함*/
+  display: block;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 600;
+  /* left는 왼쪽에서부터 얼마나 떨어지느냐-이므로 블록이 오른쪽으로 이동함. bottom도 위로 올라가는 효과*/
+}

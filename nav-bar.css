@@ -1,0 +1,106 @@
+.nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #f9f9fa;
+  padding: 20px 50px;
+  box-sizing: border-box;
+  /*내가 padding을 줘도 상관말고 기존 틀을 유지해줘-란 뜻*/
+  border-radius: 10px;
+  border-top: 1px solid rgba(110, 109, 109, 0.5);
+}
+
+.nav__list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav__link {
+  color: #2e363e;
+  position: relative;
+}
+
+@keyframes notificationAnimation {
+  0% {
+    transform: none;
+  }
+  50% {
+    transform: translateY(-5px) rotateY(180deg);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+.nav__notification {
+  position: absolute;
+  left: 15px;
+  bottom: 15px; /* left는 왼쪽에서부터 얼마나 떨어지느냐-이므로 블록이 오른쪽으로 이동함. bottom도 위로 올라가는 효과*/
+  animation: notificationAnimation 2s ease-in-out infinite;
+}
+
+.nav__notification2 {
+  background-color: tomato;
+  width: 10px;
+  height: 10px; /* 여기까지만 쓰면 width나 height가 안되는데 span이기 때문. 그래서 block처리함*/
+  display: block;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 35px;
+  bottom: 25px;
+}
+
+.chat-notification {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  text-shadow: #fc0 1px 0 10px;
+  font-weight: 400;
+  position: absolute;
+  right: 173px;
+  top: 87px;
+}
+
+.nav__notification3 {
+  background-color: tomato;
+  width: 10px;
+  height: 10px; /* 여기까지만 쓰면 width나 height가 안되는데 span이기 때문. 그래서 block처리함*/
+  display: block;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 35px;
+  bottom: 25px;
+}
+
+@keyframes appearBtnAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.nav__btn {
+  transform: translateY(80px);
+  opacity: 0;
+  animation: appearBtnAnimation 0.5s ease-in-out forwards;
+}
+
+.nav__btn:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.nav__btn:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.nav__btn:last-child {
+  animation-delay: 0.6s;
+}

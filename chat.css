@@ -1,0 +1,194 @@
+#chat-screen {
+  background-color: #abc1d1;
+  height: 100vh;
+}
+
+#chat-screen .alt-header,
+#chat-screen .status-bar {
+  top: 0;
+  position: fixed;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #abc1d1;
+}
+
+#chat-screen .status-bar {
+  z-index: 2;
+}
+/*z-index는 층의 순서를 말함. 지정한 레이어가 위에서 2번째에 위치한다고 지정.
+서로 가리거나 겹칠때 유용하게 사용*/
+
+#chat-screen .alt-header {
+  top: 35px;
+  z-index: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.main-chat {
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 1s linear;
+}
+
+.chat__timestamp {
+  color: white;
+  background-color: #92a4b2;
+  padding: 10px;
+  border-radius: 18px;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.message-row {
+  width: 100%;
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.message-row img {
+  width: 50px;
+  height: 50px;
+  border-radius: 30%;
+  margin-right: 12px;
+}
+
+.message-row__auther {
+  opacity: 0.8;
+  font-size: 14px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.message__bubble {
+  background-color: white;
+  padding: 10px 14px;
+  border-radius: 15px;
+  border-top-left-radius: 0px;
+  font-size: 17px;
+  margin-right: 5px;
+}
+
+.message__info {
+  display: flex;
+  align-items: flex-end;
+}
+
+.message__time {
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+.message-row--own {
+  justify-content: flex-end;
+}
+
+.message-row--own .message__bubble {
+  background-color: var(--yellow);
+  border-radius: 15px;
+  border-top-right-radius: 0px;
+  order: 1;
+}
+/*order는 flex children에게만 적용가능한 치트키이다 
+이거 외에도 message-row--own .message__info {flex-direction: row-reverse}
+를 먹여도 동일한 효과가 나온다.*/
+.message-row--own .message__time {
+  order: 0;
+  margin-right: 5px;
+}
+
+.reply {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 25px;
+  align-items: center;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+.reply i {
+  opacity: 0.5;
+}
+
+.reply .reply__column:first-child {
+  width: 5%;
+}
+
+.reply .reply__column:last-child {
+  width: 95%;
+  position: relative;
+}
+
+.reply input {
+  padding: 2px;
+  height: 30px;
+  width: 100%;
+  border: var(--make-border);
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.reply__column:last-child > i,
+.reply__column:last-child button {
+  position: absolute;
+  right: -2.5px;
+  top: 2px;
+}
+
+.reply__column:last-child > i {
+  right: 40px;
+  top: 10px;
+}
+
+.reply__column button {
+  background-color: var(--yellow);
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: white;
+}
+
+.reply__column button:focus,
+.reply__column button:active {
+  outline: none;
+}
+
+..reply__column button i {
+  opacity: 1;
+}
+
+.reply .fa-smile,
+.reply button,
+.reply .reply__column:first-child {
+  transition: all 0.3s ease-in-out;
+}
+
+.reply:focus-within .fa-smile,
+.reply:focus-within button,
+.reply:focus-within .reply__column:first-child {
+  opacity: 0;
+}
+
+.reply:focus-within input {
+  width: 95vw;
+  transform: translateX(-7%) translateY(-80px);
+}
+
+.reply:focus-within {
+  transform: translateY(80px);
+}
